@@ -2,7 +2,7 @@
   "name": "main",
   "version": "0.1.0",
   "private": true,
-  "homepages": "https://maryia-lysenina.github.io/marvel-information-portal/",
+  "homepages": "https://github.com/Maryia-Lysenina/marvel-information-portal",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
