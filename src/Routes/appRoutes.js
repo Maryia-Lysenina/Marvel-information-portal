@@ -6,6 +6,7 @@ import Comics from '../Pages/Comics/Comics';
 function AppRoutes() {
     return ( 
         <Routes>
+            <Route path='/' element={<Characters />}/>
             <Route path='/characters' element={<Characters />}/>
             <Route path='/comics' element={<Comics />}/>
         </Routes>

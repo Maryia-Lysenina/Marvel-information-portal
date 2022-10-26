@@ -1,9 +1,8 @@
+import ComicsList from "../../components/comicsList/ComicsList";
 
 const Comics = () => {
     return ( 
-        <p>
-        COMICS PAGE
-        </p>
+        <ComicsList />
      );
 }
  
