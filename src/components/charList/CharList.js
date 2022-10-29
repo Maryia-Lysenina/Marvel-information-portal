@@ -12,8 +12,6 @@ const CharList = ({selectedChar}) => {
     
     const [heros, setHeros] = useState([])
 
-
-    console.log(heros)
     const [count, setCount] = useState(0);
     useEffect(() => {
         const id = Math.floor(Math.random() * (1011400 - 1011000) + 1011000);

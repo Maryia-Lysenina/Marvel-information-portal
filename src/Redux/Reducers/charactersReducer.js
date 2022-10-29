@@ -1,31 +1,15 @@
-const initState = {
-    name: '',
-    thumbnail: {
-        path: '',
-        extension: ''
-    },
-    urls: [
-        {type:'', url: ''},
-        {type:'', url: ''},
-        {type:'', url: ''}
-    ],
-    comics: {
-      items: [
-        {name: ''}
-      ],
-    },
-};
+const initState = [];
 
-export const charactersReducer = (action, state = initState) => {
+export const charactersReducer = ( state = initState, action) => {
     switch (action.type){
         default: return state;
         case 'ADD_CHARACTERS': {
-            return state = action.payload
+            return action.payload
         }
     }
 }
 
-export const characterssAC = (payload) => {
+export const charactersAC = (payload) => {
     return {
         type: 'ADD_CHARACTERS',
         payload,
