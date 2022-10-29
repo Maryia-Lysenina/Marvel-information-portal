@@ -1,15 +1,13 @@
 import './randomChar.scss';
 import mjolnir from '../../resources/img/mjolnir.png';
 import { useEffect, useState } from 'react';
-import {API_KEY, BASED_URL, NULL_OBJ} from '../../Constants/index'
+import {API_KEY, BASED_CHARACT_URL, NULL_OBJ} from '../../Constants/index'
 import Spinner from '../spinner/Spiner';
 import ErrorMessage from '../errorMessage/ErrorMessage';
 
 
 const RandomChar = () => {
    
-
-
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(false)
     const [random, setRandom] = useState(false)
@@ -24,7 +22,7 @@ const RandomChar = () => {
                 }
             return res.json()
             }
-        getCharacter(`${BASED_URL}/${id}?${API_KEY}`)
+        getCharacter(`${BASED_CHARACT_URL}/${id}?${API_KEY}`)
             .then(res => setHero(res.data.results[0]))
             setLoading(false)
 

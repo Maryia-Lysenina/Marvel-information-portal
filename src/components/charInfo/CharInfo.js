@@ -1,6 +1,6 @@
 import './charInfo.scss';
 import { useState, useEffect } from 'react';
-import {API_KEY, BASED_URL, NULL_OBJ} from '../../Constants/index'
+import {API_KEY, BASED_CHARACT_URL, NULL_OBJ} from '../../Constants/index'
 import axios from 'axios';
 
 const CharInfo = ({hero}) => {
@@ -10,7 +10,7 @@ const CharInfo = ({hero}) => {
             //первый рендер случайной карточки слева:
     useEffect(() => {
             const id = Math.floor(Math.random() * (1011400 - 1011000) + 1011000);
-            axios(`${BASED_URL}/${id}?${API_KEY}`)
+            axios(`${BASED_CHARACT_URL}/${id}?${API_KEY}`)
             .then(res => setNewHero(res.data.results[0]))
     }, [])
             // при клике на карточку справа перерендер подробной инфы справа:

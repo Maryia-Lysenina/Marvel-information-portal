@@ -1,6 +1,6 @@
 import './SearchChar.scss';
 import { useEffect, useState } from 'react';
-import {API_KEY, BASED_URL, NULL_OBJ} from '../../Constants/index';
+import {API_KEY, BASED_CHARACT_URL, NULL_OBJ} from '../../Constants/index';
 
 const SearchChar = () => {
     const [nameChar, setNameChar] = useState('')
@@ -14,7 +14,7 @@ const SearchChar = () => {
                 const res = await fetch(url);
                 return res.json()
             }
-            getCharacter(`${BASED_URL}?name=${nameChar}&${API_KEY}`)
+            getCharacter(`${BASED_CHARACT_URL}?name=${nameChar}&${API_KEY}`)
             .then(res => {
                 setReqError(false)
                 setError(false)

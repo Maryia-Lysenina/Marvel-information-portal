@@ -1,7 +1,7 @@
 import './charList.scss';
 import abyss from '../../resources/img/abyss.jpg';
 import { useEffect, useState } from 'react';
-import {API_KEY, BASED_URL, NULL_OBJ} from '../../Constants/index';
+import {API_KEY, BASED_CHARACT_URL, NULL_OBJ} from '../../Constants/index';
 
 
 
@@ -18,11 +18,10 @@ const CharList = ({selectedChar}) => {
          
             async function getCharacter(url){
                 const res = await fetch(url);
-
             return res.json()
             }
             
-        getCharacter(`${BASED_URL}?limit=${limit}&offset=${offset}&${API_KEY}`)
+        getCharacter(`${BASED_CHARACT_URL}?limit=${limit}&offset=${offset}&${API_KEY}`)
             .then(res => setHeros(res.data.results))
 
 
@@ -33,12 +32,12 @@ const CharList = ({selectedChar}) => {
         setCount(count + 1);
         console.log('clicked more')
     }
-    console.log(heros)
 
+    
     return (
         <div className="char__list">
             <ul className="char__grid">
-            
+
                 {heros.map((item, id) => 
                      <li className="char__item" key={id} onClick={() => selectedChar(item)}>
                         {item.thumbnail.path && (
@@ -47,7 +46,7 @@ const CharList = ({selectedChar}) => {
                      <div className="char__name">{item && item.name}</div>
                     </li>
                 )}
-                
+
             </ul>
             <button onClick={() => moreChar()}className="button button__main button__long">
                 <div className="inner">load more</div>

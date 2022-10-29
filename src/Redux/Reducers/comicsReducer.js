@@ -1,7 +1,7 @@
 import axios from "axios";
+import {API_KEY, BASED_COMICS_URL} from '../../Constants/index';
+
 const initState = [];
-
-
 export const comicsReducer = (state = initState, action) => {
     switch (action.type){
         default: return state
@@ -19,9 +19,16 @@ export const addComicsAC = (payload) => {
 }
 
 
-export const addComicsTC = () => {
+export const addComicsTC = (limit) => {
 return async (dispatch) => {
-    axios(`https://gateway.marvel.com:443/v1/public/comics?apikey=94b30508a0929f4a8b725626690df443`)
+    axios(`${BASED_COMICS_URL}?limit=${limit}&${API_KEY}`)
     .then(response => dispatch(addComicsAC(response.data.data.results)))
  }
 }
+// 'https://gateway.marvel.com:443/v1/public/comics?limit=9&offset=8&apikey=94b30508a0929f4a8b725626690df443
+export const addMoreComicsTC = (limit,offset) => {
+    return async (dispatch) => {
+        axios(`${BASED_COMICS_URL}?limit=${limit}&offset=${offset}&${API_KEY}}`)
+        .then(response => dispatch(addComicsAC(response.data.data.results)))
+     }
+    }

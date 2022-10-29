@@ -1,0 +1,23 @@
+.comics {
+    &__logoblock {
+        display: flex;
+        align-items: center;
+        background-color: #232222;
+        height: 100px;
+        margin: 50px auto 45px auto;
+    }
+    &__logoimg {
+        margin: 0 83px 0 45px;
+    }
+    &__logotext {
+        max-width: 235px;
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 32px;
+        letter-spacing: -0.045em;
+        color: #FFFFFF;
+    }
+    &__logologo {
+        margin: 0 25px 0 427px;
+    }
+}
