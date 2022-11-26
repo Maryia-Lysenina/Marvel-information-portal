@@ -1,5 +1,5 @@
 
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import './appHeader.scss';
 
 const AppHeader = () => {
@@ -15,11 +15,17 @@ const AppHeader = () => {
                 <ul>
                    
                     <li class="header__link">
-                       <Link to='./characters'>Characters</Link>
+                       <NavLink to='./characters' 
+                       className={({ isActive }) =>(isActive ? "active" : "")}>
+                            Characters
+                        </NavLink>
                     </li>
                     /
                     <li class="header__link">
-                        <Link to='./comics'>Comics</Link>
+                        <NavLink to='./comics'
+                        className={({ isActive }) =>(isActive ? "active" : "")}>
+                            Comics
+                        </NavLink>
                     </li>
                 </ul>
             </nav>

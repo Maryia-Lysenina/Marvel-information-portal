@@ -3,6 +3,7 @@ import { useDispatch , useSelector} from 'react-redux';
 import { useEffect, useState } from 'react';
 import { addComicsTC, addMoreComicsTC } from '../../Redux/Reducers/comicsReducer';
 import ComicsLogo from '../comicsLogo/ComicsLogo';
+import { NavLink } from 'react-router-dom';
 
 
 const ComicsList = () => {
@@ -16,7 +17,6 @@ const ComicsList = () => {
     }, [count])
 
     const COMICS = useSelector((state) => state.comics.length ? state.comics : [])
-    console.log(COMICS)
     const addMoreComics = () => {
         setLimit(limit + 8);
         setCount(count + 1);
@@ -29,12 +29,14 @@ const ComicsList = () => {
                 <ul className="comics__grid">
                     { COMICS.length ? COMICS.map((item, id) => 
                     <li className="comics__item" key={id}>
+                        <NavLink to={`/comics/${item.id}`}>
                             <img 
                             src={`${item.thumbnail.path}.${item.thumbnail.extension}`} 
                             alt={item.title} className="comics__item-img"/>
                             <div className="comics__item-name">{item.title}</div>
                             <div className="comics__item-price">{item.prices[0].price != 0 ? item.prices[0].price + '$' : 'NOT AVAILABLE'}</div>
-                        </li>
+                        </NavLink>
+                    </li>
                     ) : null}
                 </ul>
                 <button onClick={addMoreComics} className="button button__main button__long">
