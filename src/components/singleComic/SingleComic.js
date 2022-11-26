@@ -1,6 +1,6 @@
 import './singleComic.scss';
 import xMen from '../../resources/img/x-men.png';
-import { useParams } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import { useDispatch , useSelector} from 'react-redux';
 import { addComicTC } from '../../Redux/Reducers/comicReducer';
 import { useEffect, useState } from 'react';
@@ -12,22 +12,22 @@ const SingleComic = () => {
     useEffect( () => {
       dispatch(addComicTC(id))
     },[])
-    
+
     const COMIC = useSelector((state) => state.comic.length ? state.comic : [])
-    console.log(COMIC)
-    return (
+    return ( 
         <div className="single-comic">
-            
-            <img src={xMen} alt="x-men" className="single-comic__img"/>
-            <div className="single-comic__info">
-            <p>{id}</p>
-                <h2 className="single-comic__name">X-Men: Days of Future Past</h2>
-                <p className="single-comic__descr">Re-live the legendary first journey into the dystopian future of 2013 - where Sentinels stalk the Earth, and the X-Men are humanity's only hope...until they die! Also featuring the first appearance of Alpha Flight, the return of the Wendigo, the history of the X-Men from Cyclops himself...and a demon for Christmas!?</p>
-                <p className="single-comic__descr">144 pages</p>
-                <p className="single-comic__descr">Language: en-us</p>
-                <div className="single-comic__price">9.99$</div>
-            </div>
-            <a href="#" className="single-comic__back">Back to all</a>
+           {!!COMIC.length ? (<img 
+           src={`${COMIC[0].thumbnail.path}.${COMIC[0].thumbnail.extension}`} 
+           alt={COMIC[0].title} 
+           className="single-comic__img"/>) : null}
+           {!!COMIC.length && (<div className="single-comic__info">
+               <h2 className="single-comic__name">{COMIC[0].name}</h2>
+               <p className="single-comic__descr"> {COMIC[0].description ? COMIC[0].description : 'no information'}</p>
+               <p className="single-comic__descr">{COMIC[0].pageCount != 0 ? COMIC[0].pageCount + ' pages' : null}</p>
+               <p className="single-comic__descr">Language: en-us</p>
+               <div className="single-comic__price">{COMIC[0].prices[0].price != 0 ? COMIC[0].prices[0].price + '$' : 'NOT AVAILABLE'}</div>
+           </div>)}
+            <NavLink to='/comics' className="single-comic__back">Back to all</NavLink>
         </div>
     )
 }

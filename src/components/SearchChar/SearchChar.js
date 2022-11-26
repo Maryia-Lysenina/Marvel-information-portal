@@ -36,7 +36,6 @@ const SearchChar = () => {
         } else setReqError(true)
        
     }
-    console.log(charID)
     return ( 
         <div className="char__search">
             <p className="char__comics">Or find a character by name:</p>
