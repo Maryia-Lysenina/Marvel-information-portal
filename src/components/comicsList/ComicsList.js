@@ -4,9 +4,11 @@ import { useEffect, useState } from 'react';
 import { addComicsTC, addMoreComicsTC } from '../../Redux/Reducers/comicsReducer';
 import ComicsLogo from '../comicsLogo/ComicsLogo';
 import { NavLink } from 'react-router-dom';
+import Spinner from '../spinner/Spiner';
 
 
 const ComicsList = () => {
+    const [loading, setLoading] = useState(true)
     let offset = 0;
     const [count, setCount] = useState(0);
     const [limit, setLimit] = useState(8);
@@ -14,19 +16,20 @@ const ComicsList = () => {
     const dispatch = useDispatch();
     useEffect( () => {
        offset == 0 ? dispatch(addComicsTC(limit)) : dispatch(addMoreComicsTC(limit,offset))
+        setLoading(false)    
     }, [count])
 
     const COMICS = useSelector((state) => state.comics.length ? state.comics : [])
     const addMoreComics = () => {
         setLimit(limit + 8);
         setCount(count + 1);
-        console.log('clicked more')
     }
     return (
         <div className="comics__wrapper">
             <ComicsLogo />
             <div className="comics__list">
-                <ul className="comics__grid">
+            {loading ? <Spinner />
+                : <ul className="comics__grid">
                     { COMICS.length ? COMICS.map((item, id) => 
                     <li className="comics__item" key={id}>
                         <NavLink to={`/comics/${item.id}`}>
@@ -38,7 +41,7 @@ const ComicsList = () => {
                         </NavLink>
                     </li>
                     ) : null}
-                </ul>
+                </ul>}
                 <button onClick={addMoreComics} className="button button__main button__long">
                     <div className="inner">load more</div>
                 </button>
