@@ -61,3 +61,28 @@
         right: -37px;
     }
 }
+@media (max-width: 1200px) {
+    .randomchar {
+        grid-template-columns: repeat(2, 55% 45%);
+        &__block {
+            padding: 25px 25px;
+            display: grid;
+            grid-template-columns: 180px auto;
+            column-gap: 20px;
+        }
+        &__info {
+            grid-template-rows: minmax(29px, auto) 115px 38px;
+        }
+        &__descr {
+            font-size: 12px;
+            line-height: 16px;
+        }
+        &__static {
+            padding: 30px 25px;
+        }
+        &__title {
+            position: relative;
+            z-index: 2;
+        }
+    }
+  }

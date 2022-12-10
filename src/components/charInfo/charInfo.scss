@@ -63,3 +63,16 @@
     }
 
 }
+@media (max-width: 1200px) {
+    .char {
+        &__info {
+            padding: 20px;
+            &-name {
+                font-weight: bold;
+                font-size: 20px;
+                line-height: 26px;
+                text-transform: uppercase;
+            }
+        }
+    }
+}

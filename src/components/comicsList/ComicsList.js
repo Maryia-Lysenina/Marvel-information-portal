@@ -5,10 +5,11 @@ import { addComicsTC, addMoreComicsTC } from '../../Redux/Reducers/comicsReducer
 import ComicsLogo from '../comicsLogo/ComicsLogo';
 import { NavLink } from 'react-router-dom';
 import Spinner from '../spinner/Spiner';
-
+import ErrorMessage from '../errorMessage/ErrorMessage';
 
 const ComicsList = () => {
-    const [loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(false);
     let offset = 0;
     const [count, setCount] = useState(0);
     const [limit, setLimit] = useState(8);
@@ -30,7 +31,7 @@ const ComicsList = () => {
             <div className="comics__list">
             {loading ? <Spinner />
                 : <ul className="comics__grid">
-                    { COMICS.length ? COMICS.map((item, id) => 
+                    {COMICS.length != 0 ? COMICS.map((item, id) => 
                     <li className="comics__item" key={id}>
                         <NavLink to={`/comics/${item.id}`}>
                             <img 

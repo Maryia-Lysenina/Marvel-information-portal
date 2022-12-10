@@ -44,3 +44,30 @@
         color: #fff;
     }
 }
+@media (max-width: 1200px) {
+    .char {
+        &__content {
+            grid-template-columns: 604px 330px;
+            column-gap: 5px;
+        }
+        &__grid {
+            grid-template-columns: repeat(3, 180px);
+            column-gap: 20px;
+            row-gap: 20px;
+        }
+        &__item {
+            width: 180px;
+            height: 280px;
+            padding: 15px;
+            img {
+                width: 180px;
+                height: 180px;
+
+            }
+        }
+        &__name {
+            font-size: 20px;
+            line-height: 26px;
+        }
+    }
+  }

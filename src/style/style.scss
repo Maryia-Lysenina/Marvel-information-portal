@@ -59,6 +59,15 @@ input::-webkit-inner-spin-button {
         z-index: -1;
     }
 }
+@media (max-width: 1200px) {
+    .app{
+        max-width: 970px;
+        .bg-decoration {
+            position: absolute;
+            right: -104px;
+        }
+    }
+  }
 
 main {
     margin-top: 50px;

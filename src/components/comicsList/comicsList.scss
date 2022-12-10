@@ -1,4 +1,7 @@
 .comics {
+    &__wrapper {
+        width: 100%;
+    }
     &__list {
         margin-top: 45px;
     }
@@ -34,3 +37,16 @@
         }
     }
 }
+@media (max-width: 1200px) {
+    .comics{
+        &__grid {
+            grid-template-columns: repeat(auto-fill, 204px);
+        }
+        &__item {
+            &-img {
+                width: 205px;
+                height: 320px;
+            }
+        }
+    }
+  }
