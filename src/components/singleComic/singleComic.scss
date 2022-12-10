@@ -37,3 +37,23 @@
         }
     }
 }
+@media (max-width: 1200px) {
+    .single-comic {
+    grid-template-columns: 293px 450px auto;
+    column-gap: 50px;
+    }
+  }
+  @media (max-width: 992px) {
+    .single-comic {
+    grid-template-columns: 200px 300px auto;
+    column-gap: 40px;
+        &__img {
+            width: 200px;
+            height: 280px;
+        }
+        &__price {
+            font-size: 18px;
+            line-height: 22px;
+        }
+    }
+  }
