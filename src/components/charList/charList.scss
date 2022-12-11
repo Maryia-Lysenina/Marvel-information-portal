@@ -62,7 +62,6 @@
             img {
                 width: 180px;
                 height: 180px;
-
             }
         }
         &__name {
@@ -71,3 +70,30 @@
         }
     }
   }
+  @media (max-width: 992px) {
+    .char {
+        &__content {
+            grid-template-columns: 410px 274px;
+            column-gap: 5px;
+        }
+        &__grid {
+            grid-template-columns: repeat(3, 120px);
+            column-gap: 15px;
+            row-gap: 15px;
+        }
+        &__item {
+            width: 120px;
+            height: 180px;
+            padding: 10px;
+            img {
+                width: 120px;
+                height: 120px;
+                transform: translate(-10px, -10px);
+            }
+        }
+        &__name {
+            font-size: 14px;
+            line-height: 16px;
+        }
+    }
+}

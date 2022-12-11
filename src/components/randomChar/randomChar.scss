@@ -66,7 +66,6 @@
         grid-template-columns: repeat(2, 55% 45%);
         &__block {
             padding: 25px 25px;
-            display: grid;
             grid-template-columns: 180px auto;
             column-gap: 20px;
         }
@@ -83,6 +82,43 @@
         &__title {
             position: relative;
             z-index: 2;
+        }
+    }
+  }
+  @media (max-width: 992px) {
+    .randomchar {
+        grid-template-columns: repeat(2, 60% 40%);
+        &__block {
+            padding: 15px 15px;
+            grid-template-columns: 120px auto;
+            column-gap: 10px;
+        }
+        &__img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+        }
+        &__info {
+            grid-template-rows: minmax(29px, auto) 75px 38px;
+            row-gap: 8px;
+        }
+        &__static {
+            padding: 15px 15px;
+            button {
+                margin-top: 19px;
+            }
+        }
+        &__title {
+            font-size: 18px;
+            line-height: 22px;
+            &:nth-child(2) {
+                margin-top: 20px;
+            }
+        }
+        &__decoration {
+            width: 60%;
+            bottom: 14px;
+            right: -37px;
         }
     }
   }
